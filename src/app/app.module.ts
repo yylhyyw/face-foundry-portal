@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = ([
+  {path: "", component: MainComponent}
+]);
 
 @NgModule({
   declarations: [
@@ -10,7 +15,8 @@ import { MainComponent } from './main/main.component';
     MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

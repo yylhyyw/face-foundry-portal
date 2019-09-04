@@ -1,1 +1,42 @@
-<button class="btn btn-primary">HELLO</button>
+<div class="main-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-container">
+                    <h1>Welcome {{user.name}}!</h1>
+                </div>
+            </div>
+        </div>
+        <div class="user-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Treatments</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Esthetician</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let appointment of appointments">
+                        <tr (click)="selectAppointment(appointment)" [ngClass]="{'selected-appointment': appointment == selectedAppointment}">
+                            <td>{{spaceStringList(appointment.treatmentsList)}}</td>
+                            <td>{{appointment.location}}</td>
+                            <td>{{appointment.esthetician}}</td>
+                            <td>{{appointment.date}}</td>
+                            <td>{{appointment.time}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="btn-container">
+                    <button class="btn btn-primary btn-lg" [disabled]="selectedAppointment == null" (click)=cancelAppointment()>Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
