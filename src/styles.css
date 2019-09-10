@@ -27,8 +27,8 @@ P, input, textarea {
     font-size: 18px;
     padding: 10px 30px 10px 30px;
 
-    background-color: #E3E8F3 !important;
-    border-color:  #E3E8F3 !important;
+    background-color: #000 !important;
+    border-color:  #000 !important;
     color: #fff;
     cursor: pointer;
 }
@@ -38,6 +38,8 @@ P, input, textarea {
     color: #000;
 }
 .btn-primary:disabled {
+    background-color: #000 !important;
+    border-color:  #000 !important;
     color: #fff !important;
     cursor: auto;
 }
