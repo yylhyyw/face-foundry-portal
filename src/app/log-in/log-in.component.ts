@@ -9,6 +9,11 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent {
 
+  submit: boolean = false;
+  logFail: boolean = false;
+  signupMobile: boolean = false;
+  loginMobile: boolean = false;
+
   model: any = {};
   
   @ViewChild('loginForm', {static: true}) loginForm: NgForm;
@@ -28,5 +33,15 @@ export class LogInComponent {
   onSubmitCreate(postData) {
     console.log(postData);
     this.signupForm.reset();
+    this.submit = true;
+  }
+
+  displaySignUpMobile() {
+    this.signupMobile = true;
+    this.loginMobile = false;
+  }
+  displayLoginMobile() {
+    this.loginMobile = true;
+    this.signupMobile = false;
   }
 }

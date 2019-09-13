@@ -16,6 +16,11 @@ export function MustMatch(controlName: string, matchingControlName: string) {
             return null;
         }
 
+         // set error on matchingControl if validation fails
+         if (control.value == "" || matchingControl.value == "") {
+            control.setErrors({ mustMatch: true });
+        } 
+
         // set error on matchingControl if validation fails
         if (control.value.length < 8 || control.value.length > 25) {
             control.setErrors({ mustMatch: true });

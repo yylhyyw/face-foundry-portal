@@ -10,6 +10,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { HeaderComponent } from './header/header.component';
 
 import { MustMatchDirective } from './validators/must-match.directive';
+import { PhoneDirective } from './validators/phone.directive';
 
 const appRoutes: Routes = ([
   {path: "", component: LogInComponent,},
@@ -22,7 +23,8 @@ const appRoutes: Routes = ([
     MainComponent,
     LogInComponent,
     MustMatchDirective,
-    HeaderComponent
+    HeaderComponent,
+    PhoneDirective
   ],
   imports: [
     BrowserModule,
