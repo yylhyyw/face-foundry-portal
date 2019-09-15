@@ -14,14 +14,16 @@ export class MainComponent implements OnInit {
   user: User;
   appointments: Appointment[];
   selectedAppointment: Appointment = null;
+  // reponse info
+  reponse_info: any;
 
   constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.appService.user;
+    this.get_appointments();
+    // this.user = this.appService.user;
     this.appointments = this.user.appointmentsList;
     console.log(this.user);
-    
   }
 
   spaceStringList(list: string[]){
@@ -58,5 +60,22 @@ export class MainComponent implements OnInit {
         this.appointments.splice(index, 1);
       }
     }
+  }
+
+  get_appointments() {
+    const postData = {
+      "LocationID": 38698,
+      "access_token": this.appService.access_token_user
+    };
+    console.log('start-----');
+    this.appService.onPostAppointments(postData).subscribe(response => {
+      console.log(response);
+      this.reponse_info = response;
+      if (this.reponse_info.statusCode == 404) {
+        this.appointments = null;
+        this.user = new User(this.appService.user_first_name + ' ' + this.appService.user_last_name, null);
+      } },
+      error => {console.log(error); },
+      () => {});
   }
 }

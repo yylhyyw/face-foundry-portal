@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 
 import { MustMatchDirective } from './validators/must-match.directive';
 import { PhoneDirective } from './validators/phone.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = ([
   {path: "", component: LogInComponent,},
@@ -30,6 +31,7 @@ const appRoutes: Routes = ([
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [],
